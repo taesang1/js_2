@@ -14,4 +14,4 @@ title_item_list.appendChild(document.createElement('hr'))
 
 box_item_list.appendChild(title_item_list)
 
-tagArea_item_list.after(box_item_list);
+tagArea_item_list.appendChild(box_item_list);
