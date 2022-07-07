@@ -1,17 +1,17 @@
 let tagArea_prdReview = document.querySelector('#prdReview');
 console.log(tagArea)
-let box = document.createElement('div');
-let title = document.createElement('p');
+let box_prdReview = document.createElement('div');
+let title_prdReview = document.createElement('p');
 
-box.setAttribute('class', 'intellisys');
-box.style.width = '100%'
-box.style.height = '200px'
-box.style.border = '1px solid black'
+box_prdReview.setAttribute('class', 'intellisys');
+box_prdReview.style.width = '100%'
+box_prdReview.style.height = '200px'
+box_prdReview.style.border = '1px solid black'
 
-title.innerHTML = 'prdReview_추천상품'
-title.style.textAlign = 'center'
-title.appendChild(document.createElement('hr'))
+title_prdReview.innerHTML = 'prdReview_추천상품'
+title_prdReview.style.textAlign = 'center'
+title_prdReview.appendChild(document.createElement('hr'))
 
-box.appendChild(title)
+box_prdReview.appendChild(title_prdReview)
 
 tagArea_prdReview.appendChild(box);
