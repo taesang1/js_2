@@ -8,7 +8,7 @@ box_prdReview.style.width = '100%'
 box_prdReview.style.height = '200px'
 box_prdReview.style.border = '1px solid black'
 
-title_prdReview.innerHTML = 'prdReview_추천상품'
+title_prdReview.innerHTML = '아이템 리뷰 추천상품'
 title_prdReview.style.textAlign = 'center'
 title_prdReview.appendChild(document.createElement('hr'))
 
