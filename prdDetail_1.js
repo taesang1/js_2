@@ -8,7 +8,7 @@ box.style.width = '100%'
 box.style.height = '200px'
 box.style.border = '1px solid black'
 
-title.innerHTML = 'prdDetail_추천상품'
+title.innerHTML = '아이템 상세이미지 추천상품'
 title.style.textAlign = 'center'
 title.appendChild(document.createElement('hr'))
 
