@@ -1,4 +1,4 @@
-let tagArea = document.querySelector('#prdReview');
+let tagArea_prdReview = document.querySelector('#prdReview');
 console.log(tagArea)
 let box = document.createElement('div');
 let title = document.createElement('p');
@@ -14,4 +14,4 @@ title.appendChild(document.createElement('hr'))
 
 box.appendChild(title)
 
-tagArea.appendChild(box);
+tagArea_prdReview.appendChild(box);
