@@ -14,4 +14,4 @@ title_prdReview.appendChild(document.createElement('hr'))
 
 box_prdReview.appendChild(title_prdReview)
 
-tagArea_prdReview.appendChild(box);
+tagArea_prdReview.appendChild(box_prdReview);
