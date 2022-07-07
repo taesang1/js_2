@@ -1,4 +1,4 @@
-let tagArea = document.querySelector('xans-order-basketpackage');
+let tagArea = document.querySelector('.xans-order-basketpackage');
 console.log(tagArea)
 let box = document.createElement('div');
 let title = document.createElement('p');
