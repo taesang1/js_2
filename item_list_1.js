@@ -8,7 +8,7 @@ box_item_list.style.width = '100%'
 box_item_list.style.height = '200px'
 box_item_list.style.border = '1px solid black'
 
-title_item_list.innerHTML = 'xans-product-listnormal_추천상품'
+title_item_list.innerHTML = '아이템 리스트 추천상품'
 title_item_list.style.textAlign = 'center'
 title_item_list.appendChild(document.createElement('hr'))
 
