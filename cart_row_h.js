@@ -17,7 +17,7 @@ for (var i = 0; i < tagArea_row.length; i++) {
     for (var j = 0; j < tagArea_.length; j++) {
         if (tagArea_[j].className != null  && tagArea_[j].className.includes('xans-record-')){
             console.log(tagArea_[j])
-            console.log('box:'+box_row)
+            console.log(box_row)
             tagArea_[j].appendChild(box_row);
             console.log(tagArea_[j])
         }
