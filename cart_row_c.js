@@ -19,6 +19,7 @@ for (var i = 0; i < tagArea_row.length; i++) {
             console.log(tagArea_[j])
             console.log(box_row)
             tagArea_[j].appendChild(box_row);
+            console.log(tagArea_[j].appendChild(box_row))
         }
       }
   }
