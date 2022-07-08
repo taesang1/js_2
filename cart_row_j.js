@@ -18,7 +18,7 @@ for (var i = 0; i < tagArea_row.length; i++) {
         if (tagArea_[j].className != null  && tagArea_[j].className.includes('xans-record-')){
             console.log(tagArea_[j])
             console.log(box_row)
-            box_row.setAttribute('class', 'intellisys'+i);
+            box_row.setAttribute('class', 'intellisys'+j);
             tagArea_[j].appendChild(box_row);
             console.log(tagArea_[j])
         }
