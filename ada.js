@@ -1,5 +1,5 @@
 function init_(){
-  let tagArea = document.querySelector("#.xans-order-basketpackage");
+  let tagArea = document.querySelector(".xans-order-basketpackage");
   let title = document.createElement("p");
   let box = document.createElement("div");
   let slide_wrapper = document.createElement("div");
