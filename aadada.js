@@ -1,4 +1,3 @@
-
 function init_(){
   let tagArea = document.querySelector(".xans-order-basketpackage");
   let title = document.createElement("p");
@@ -69,9 +68,11 @@ function set_page(box){
   let prev = document.createElement("span");
   let next = document.createElement("span");
   prev.setAttribute("class", "prev");
+  prev.style.fontSize = '40px'
   prev.innerHTML = "&lt;";
   next.setAttribute("class", "next");
   next.innerHTML = "&gt;";
+  next.style.fontSize = '40px'
   // controls.setAttribute("class", "controls");
   intellisys_box.append(prev,box, next)
   return intellisys_box
@@ -132,7 +133,7 @@ var slides_ = document.querySelector('.slides'),
     nextBtn = document.querySelector('.next'),
     currentIdx = 0,
     slideCount = slide.length,
-    slideWidth = Math.ceil(slide_wrapper.offsetWidth/4 - document.querySelector('.prev').offsetWidth/4 *2)
+    slideWidth = Math.ceil(slide_wrapper.offsetWidth/4 - document.querySelector('.prev').offsetWidth/(imglist.length*3) *2)
 
 makeClone();
 
@@ -158,7 +159,7 @@ function makeClone(){
 function updateWidth(){
   var currentSlides = document.querySelectorAll('.slides li')
   var newSlideCount = currentSlides.length
-  console.log(slideWidth)
+  console.log(document.querySelector('.prev').offsetWidth/24 *2)
   var newWidth = slideWidth*newSlideCount + 'px';
   slides_.style.width = newWidth
 }
@@ -192,7 +193,7 @@ function moveslide(num){
 }
 
 function set_style() {
-  var width = Math.floor(slide_wrapper.offsetWidth/4) - document.querySelector('.prev').offsetWidth/4*2
+  var width = Math.floor(slide_wrapper.offsetWidth/4) - document.querySelector('.prev').offsetWidth/(imglist.length*3)*2
   console.log(width, slideWidth)
   return "\
   *{margin:0; padding: 0;}\
@@ -201,8 +202,8 @@ function set_style() {
   .slide_wrapper{position: relative; width: 100%; height: 80%; overflow: hidden; margin: 0 auto;}\
   .slides{position: absolute; left: 0; top: 0; padding-left: 0;}\
   .slides.animated{transition: 0.5s ease-out;}\
-  .prev {margin: auto; font-size: 40px;}\
-  .next {margin: auto; font-size: 40px;}\
+  .prev {margin: auto;}\
+  .next {margin: auto;}\
   .slides li{width:"+slideWidth+"px; height: 100px; float: left;}"
 }
 
