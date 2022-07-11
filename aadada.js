@@ -132,7 +132,7 @@ var slides_ = document.querySelector('.slides'),
     nextBtn = document.querySelector('.next'),
     currentIdx = 0,
     slideCount = slide.length,
-    slideWidth = Math.floor(slide_wrapper.offsetWidth/4 - document.querySelector('.prev').offsetWidth/4 *2)
+    slideWidth = Math.ceil(slide_wrapper.offsetWidth/4 - document.querySelector('.prev').offsetWidth/4 *2)
 
 makeClone();
 
