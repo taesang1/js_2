@@ -2,6 +2,7 @@
 function init_(){
   let tagArea = document.querySelector(".xans-order-basketpackage");
   let title = document.createElement("p");
+  let intellisys_box = document.createElement("div");
   let box = document.createElement("div");
   let slide_wrapper = document.createElement("div");
   let slides = document.createElement("ul");
@@ -43,6 +44,7 @@ function init_(){
     tagArea : tagArea,
     title : title,
     box : box,
+    intellisys_box : intellisys_box,
     slide_wrapper : slide_wrapper,
     slides : slides,
     imglist : imglist
@@ -62,17 +64,17 @@ function set_up() {
   };
 }
 
-function set_page(){
-  let controls = document.createElement("p");
+function set_page(box){
+  // let controls = document.createElement("p");
   let prev = document.createElement("span");
   let next = document.createElement("span");
   prev.setAttribute("class", "prev");
-  prev.innerHTML = "prev";
+  prev.innerHTML = "&lt;";
   next.setAttribute("class", "next");
-  next.innerHTML = "next";
-  controls.setAttribute("class", "controls");
-  controls.append(prev, next)
-  return controls
+  next.innerHTML = "&gt;";
+  // controls.setAttribute("class", "controls");
+  intellisys_box.append(prev,box, next)
+  return intellisys_box
 }
 
 function set_css(){
@@ -85,6 +87,7 @@ init = init_()
 tagArea = init.tagArea
 title = init.title
 box = init.box
+intellisys_box = init.intellisys_box
 slide_wrapper = init.slide_wrapper
 slides = init.slides
 imglist = init.imglist
@@ -92,9 +95,13 @@ imglist = init.imglist
 slide_wrapper.setAttribute("class", "slide_wrapper");
 slides.setAttribute("class", "slides");
 
-box.setAttribute("class", "intellisys");
 box.style.width = "100%"
+box.style.height = "100%"
+box.style.margin = 'auto'
+box.setAttribute("class", "box");
 
+intellisys_box.setAttribute("class", "intellisys");
+intellisys_box.style.display= "flex";
 title.innerHTML = "추천상품";
 title.style.textAlign = "center";
 title.appendChild(document.createElement("hr"));
@@ -115,19 +122,17 @@ slide_wrapper.appendChild(slides)
 
 box.appendChild(title);
 box.appendChild(slide_wrapper)
-box.appendChild(set_page())
 
-tagArea.appendChild(box)
-
-box.prepend(set_css())
+// intellisys_box.appendChild()
+tagArea.appendChild(set_page(box))
 
 var slides_ = document.querySelector('.slides'),
     slide = document.querySelectorAll('.slides li'),
-    currentIdx = 0,
-    slideCount = slide.length,
-    slideWidth = Math.ceil(slide_wrapper.offsetWidth/4)
     prevBtn = document.querySelector('.prev'),
     nextBtn = document.querySelector('.next'),
+    currentIdx = 0,
+    slideCount = slide.length,
+    slideWidth = Math.floor(slide_wrapper.offsetWidth/4 - document.querySelector('.prev').offsetWidth/4 *2)
 
 makeClone();
 
@@ -153,7 +158,7 @@ function makeClone(){
 function updateWidth(){
   var currentSlides = document.querySelectorAll('.slides li')
   var newSlideCount = currentSlides.length
-
+  console.log(slideWidth)
   var newWidth = slideWidth*newSlideCount + 'px';
   slides_.style.width = newWidth
 }
@@ -187,15 +192,18 @@ function moveslide(num){
 }
 
 function set_style() {
-  var width = Math.floor(slide_wrapper.offsetWidth/4)
+  var width = Math.floor(slide_wrapper.offsetWidth/4) - document.querySelector('.prev').offsetWidth/4*2
+  console.log(width, slideWidth)
   return "\
   *{margin:0; padding: 0;}\
   li{list-style:none;}\
   .intellisys{height: 200px; border: 1px solid black; margin: 0 auto;}\
-  .slide_wrapper{position: relative; width: 100%; height: 80%; overflow: hidden; margin: 0 auto}\
-  .slides{position: absolute; left: 0; top: 0;}\
+  .slide_wrapper{position: relative; width: 100%; height: 80%; overflow: hidden; margin: 0 auto;}\
+  .slides{position: absolute; left: 0; top: 0; padding-left: 0;}\
   .slides.animated{transition: 0.5s ease-out;}\
-  .controls {text-align: center; margin-top: 50px;}\
-  .controls span{background:#333; color: #fff; padding:10px 20px; margin:0 10px;}\
-  .slides li{width:"+width+"px; height: 100px; float: left;}"
+  .prev {margin: auto; font-size: 40px;}\
+  .next {margin: auto; font-size: 40px;}\
+  .slides li{width:"+slideWidth+"px; height: 100px; float: left;}"
 }
+
+box.prepend(set_css())
