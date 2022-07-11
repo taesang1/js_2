@@ -1,3 +1,4 @@
+
 function init_(){
   let tagArea = document.querySelector(".xans-order-basketpackage");
   let title = document.createElement("p");
@@ -124,11 +125,9 @@ var slides_ = document.querySelector('.slides'),
     slide = document.querySelectorAll('.slides li'),
     currentIdx = 0,
     slideCount = slide.length,
-    slideWidth = box.offsetWidth/4,
-    slideMargin = 5,
+    slideWidth = Math.ceil(slide_wrapper.offsetWidth/4)
     prevBtn = document.querySelector('.prev'),
     nextBtn = document.querySelector('.next'),
-    width = slide_wrapper.offsetWidth/4
 
 makeClone();
 
@@ -155,12 +154,12 @@ function updateWidth(){
   var currentSlides = document.querySelectorAll('.slides li')
   var newSlideCount = currentSlides.length
 
-  var newWidth = (slideWidth + slideMargin)*newSlideCount - slideMargin + 'px';
+  var newWidth = slideWidth*newSlideCount + 'px';
   slides_.style.width = newWidth
 }
 
 function setInitialPos(){
-  var initialTranslateValue = -(slideWidth + slideMargin)*slideCount;
+  var initialTranslateValue = -slideWidth*slideCount;
   slides_.style.transform = 'translateX('+initialTranslateValue+'px)';
 }
 
@@ -173,7 +172,7 @@ prevBtn.addEventListener('click',function(){
 })
 
 function moveslide(num){
- slides_.style.left = -num * width+'px';
+ slides_.style.left = -num * slideWidth+'px';
  currentIdx = num;
  if (currentIdx == slideCount || currentIdx == -slideCount){
   setTimeout(function(){
@@ -188,7 +187,7 @@ function moveslide(num){
 }
 
 function set_style() {
-  var width = slide_wrapper.offsetWidth/4
+  var width = Math.floor(slide_wrapper.offsetWidth/4)
   return "\
   *{margin:0; padding: 0;}\
   li{list-style:none;}\
