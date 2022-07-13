@@ -6,6 +6,7 @@ function get_user_id(){
     user = {menubar_id: j.data.guest_id, name: 'guest'};
   } else {
     const j = JSON.parse(user)
+    console.log(j)
     user = {menubar_id: j.data.member_id, name: j.data.name};
   }
   return user
