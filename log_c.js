@@ -6,7 +6,6 @@ function get_user_id(){
     user = {member_id: j.data.guest_id, name: 'guest'};
   } else {
     const j = JSON.parse(user)
-    console.log(j)
     user = {member_id: j.data.member_id, name: j.data.name};
   }
   return user
@@ -24,4 +23,4 @@ function get_item_id(){
 }
 user = get_user_id()
 item_id = get_item_id()
-console.log(`mall_id: ${CAFE24API['MALL_ID']}, uesr_id: ${user.member_id}, user_name: ${user.name}, item_id: ${item_id}`)
+console.log(`mall_id: ${CAFE24API['MALL_ID']}, uesr_id: ${user.member_id}, user_name: ${user.name}, item_id(메타태그): ${item_id}, itme_id(코드 내부 변수): ${product_no}`)
