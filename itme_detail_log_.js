@@ -22,19 +22,6 @@ function get_item_id(){
   return meta
 }
 
-function get_cart_items(){
-  let item_list = aBasketProductData
-  let itme_id_list = ''
-  if (item_list.length == 0){
-    return '장바구니가 비었습니다.'
-  } else {
-    for (let i = 0; i < item_list.length; i++) {
-      itme_id_list += item_list[0].product_no
-    }
-    return itme_id_list
-  }
-}
 user = get_user_id()
 item_id = get_item_id()
-itme_id_list = get_cart_items()
-console.log(`mall_id: ${CAFE24API.MALL_ID}, uesr_id: ${user.member_id}, user_name: ${user.name}, item_id: ${item_id}, cart_item_list: ${itme_id_list} `)
+console.log(`mall_id: ${CAFE24API.MALL_ID}, uesr_id: ${user.member_id}, user_name: ${user.name}, item_id: ${item_id} `)
