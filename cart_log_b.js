@@ -29,7 +29,7 @@ function get_cart_items(){
     return '장바구니가 비었습니다.'
   } else {
     for (let i = 0; i < item_list.length; i++) {
-      itme_id_list += item_list[0].product_no
+      itme_id_list += ","+item_list[i].product_no
     }
     return itme_id_list
   }
