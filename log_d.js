@@ -3,11 +3,11 @@ function get_user_id(){
   if (user == null){
     user = sessionStorage.getItem('AppCommon_1')
     const j = JSON.parse(user)
-    user = {menubar_id: j.data.guest_id, name: 'guest'};
+    user = {member_id: j.data.guest_id, name: 'guest'};
   } else {
     const j = JSON.parse(user)
     console.log(j)
-    user = {menubar_id: j.data.member_id, name: j.data.name};
+    user = {member_id: j.data.member_id, name: j.data.name};
   }
   return user
 }
