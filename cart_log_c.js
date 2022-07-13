@@ -24,12 +24,12 @@ function get_item_id(){
 
 function get_cart_items(){
   let item_list = aBasketProductData
-  let itme_id_list = ''
+  let itme_id_list = []
   if (item_list.length == 0){
     return '장바구니가 비었습니다.'
   } else {
     for (let i = 0; i < item_list.length; i++) {
-      itme_id_list += ","+item_list[i].product_no
+      itme_id_list.append(item_list[i].product_no)
     }
     return itme_id_list
   }
