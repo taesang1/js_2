@@ -34,6 +34,11 @@ function get_cart_items(){
     return itme_id_list
   }
 }
+
+function get_wishList(){
+  return JSON.parse(sessionStorage.getItem('localWishList1')).wishList
+}
+
 user = get_user_id()
 itme_id_list = get_cart_items()
-console.log(`mall_id: ${CAFE24API.MALL_ID}, uesr_id: ${user.member_id}, user_name: ${user.name}, cart_item_list: ${itme_id_list} `)
+console.log(`mall_id: ${CAFE24API.MALL_ID}, uesr_id: ${user.member_id}, user_name: ${user.name}, cart_item_list: ${itme_id_list}, wishList: ${get_wishList()} `)
