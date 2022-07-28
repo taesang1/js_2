@@ -1,5 +1,5 @@
 function init_(){
-  let tagArea = document.querySelector("#main");
+  let tagArea = document.querySelector("#prdDetail");
   let title = document.createElement("p");
   let intellisys_box = document.createElement("div");
   let box = document.createElement("div");
