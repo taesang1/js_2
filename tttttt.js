@@ -84,7 +84,7 @@ box.setAttribute("class", "box");
 
 intellisys_box.setAttribute("class", "intellisys");
 intellisys_box.style.display= "flex";
-title.innerHTML = "상품";
+title.innerHTML = "코디상품";
 title.style.textAlign = "center";
 title.appendChild(document.createElement("hr"));
 
