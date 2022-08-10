@@ -55,6 +55,7 @@ class main {
       this.slide_wrapper.appendChild(this.slides)
       this.slide_wrapper.appendChild(this.hr)
     }
+    this.loading(false)
   }
 
   set_attrs() {
@@ -76,13 +77,27 @@ class main {
   set_box() {
     this.info()
     this.set_attrs()
-
-    ref()
-
+    
     this.box.appendChild(this.title);
+    this.loading(true)
+    ref()
     this.box.appendChild(this.slide_wrapper)
 
     this.tagArea.appendChild(this.box)
+  }
+
+  loading(status){
+    if (status){
+      var loading_img = document.createElement("img")
+      loading_img.setAttribute("src",'https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A');
+      loading_img.setAttribute("id", 'loading');
+      this.box.appendChild(loading_img)
+      this.box.style.textAlign='center'
+    } else {
+      var loading_img = document.querySelector("#loading");
+      this.box.removeChild(loading_img)
+      this.box.style.textAlign=''
+    }
   }
 }
 
