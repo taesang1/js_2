@@ -1,4 +1,4 @@
-class main {
+class main_code_set {
   constructor(target) {
     for (const i in target) {
       this.tagArea = document.querySelector(`#${target[i]}`);
@@ -101,7 +101,7 @@ class main {
   }
 }
 
-a = new main(['productList', 'main'])
+main_code_set_ = new main_code_set(['productList', 'main'])
 
 function ref() {
   const xhr = new XMLHttpRequest();
@@ -119,7 +119,7 @@ function ref() {
       const { status } = target;
 
       if (status === 0 || (status >= 200 && status < 400)) {
-        a.set_code(xhr.response)
+        main_code_set_.set_code(xhr.response)
       } else {
         console.log('Error', xhr.status, xhr.statusText)
       }
