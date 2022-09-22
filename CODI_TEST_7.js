@@ -91,7 +91,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
     this.box.appendChild(this.title);
     this.loading(true);
     goods_id = get_goods_id();
-    ref(CAFE24API.MALL_ID, CAFE24API.SHOP_NO, goods_id);
+    // ref(CAFE24API.MALL_ID, CAFE24API.SHOP_NO, goods_id); ['MALL_ID']
     this.set_code();
     this.box.appendChild(this.code_row);
 
