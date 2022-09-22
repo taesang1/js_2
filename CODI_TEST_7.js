@@ -1,5 +1,3 @@
-import axios from "@nuxtjs/axios";
-
 class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
   constructor(target) {
     for (const i in target) {
