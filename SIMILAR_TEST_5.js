@@ -1,4 +1,4 @@
-class INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR {
+class INTELLISYS_FRONT_PRODUCT_DETAIL_CODI {
   constructor(target) {
     for (const i in target) {
       this.tagArea = document.querySelector(`#${target[i]}`);
@@ -94,7 +94,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR {
       this.row.appendChild(this.link);
       this.slides.appendChild(this.row);
     }
-    // this.loading(false)
+    this.loading(false)
   }
 
   set_attrs() {
@@ -112,7 +112,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR {
     this.intellisys_box.style.border = '1px solid black'
     this.intellisys_box.style.margin = '0 auto'
 
-    this.title.innerHTML = "유사상품";
+    this.title.innerHTML = "코디상품";
     this.title.style.textAlign = "center";
     this.title.appendChild(document.createElement("hr"));
   }
@@ -124,55 +124,55 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR {
     this.set_code()
     this.slide_wrapper.appendChild(this.slides)
     this.box.appendChild(this.title);
-    // this.loading(true)
-    // ref()
+    this.loading(true)
+    ref()
 
     this.box.appendChild(this.slide_wrapper)
     this.tagArea.appendChild(this.set_page())
   }
 
-  // loading(status){
-  //   if (status){
-  //     var loading_img = document.createElement("img")
-  //     loading_img.setAttribute("src",'https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A');
-  //     loading_img.setAttribute("id", 'loading');
-  //     this.box.appendChild(loading_img)
-  //     this.box.style.textAlign='center'
-  //   } else {
-  //     var loading_img = document.querySelector("#loading");
-  //     this.box.removeChild(loading_img)
-  //     this.box.style.textAlign=''
-  //   }
-  // }
+  loading(status){
+    if (status){
+      var loading_img = document.createElement("img")
+      loading_img.setAttribute("src",'https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A');
+      loading_img.setAttribute("id", 'loading');
+      this.box.appendChild(loading_img)
+      this.box.style.textAlign='center'
+    } else {
+      var loading_img = document.querySelector("#loading");
+      this.box.removeChild(loading_img)
+      this.box.style.textAlign=''
+    }
+  }
 }
 
 var INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR_ = new INTELLISYS_FRONT_PRODUCT_DETAIL_SIMILAR(['prdDetail', 'main'])
 
-// function ref() {
-//   const xhr = new XMLHttpRequest();
-//   const method = "GET";
-//   const url = "http://127.0.0.1:8000";
+function ref() {
+  const xhr = new XMLHttpRequest();
+  const method = "GET";
+  const url = "http://127.0.0.1:8000";
 
-//   // 요청을 초기화 합니다.
-//   xhr.open(method, url);
+  // 요청을 초기화 합니다.
+  xhr.open(method, url);
 
-//   // onreadystatechange 이벤트를 이용해 요청에 대한 응답 결과를 처리합니다.
-//   xhr.onreadystatechange = function (event) {
-//     const { target } = event;
+  // onreadystatechange 이벤트를 이용해 요청에 대한 응답 결과를 처리합니다.
+  xhr.onreadystatechange = function (event) {
+    const { target } = event;
 
-//     if (target.readyState === XMLHttpRequest.DONE) {
-//       const { status } = target;
+    if (target.readyState === XMLHttpRequest.DONE) {
+      const { status } = target;
 
-//       if (status === 0 || (status >= 200 && status < 400)) {
-//         similar.set_code(xhr.response)
-//       } else {
-//         console.log('Error', xhr.status, xhr.statusText)
-//       }
-//     }
-//   };
-//   // 서버에 요청을 보냅니다.
-//   xhr.send();
-// }
+      if (status === 0 || (status >= 200 && status < 400)) {
+        similar.set_code(xhr.response)
+      } else {
+        console.log('Error', xhr.status, xhr.statusText)
+      }
+    }
+  };
+  // 서버에 요청을 보냅니다.
+  xhr.send();
+}
 
 var slides_ = document.querySelector('.app-taesang-intellisys-slides-similar'),
     slide = document.querySelectorAll('.app-taesang-intellisys-slides-similar li'),
