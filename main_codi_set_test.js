@@ -91,7 +91,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
     this.box.appendChild(this.title);
     this.loading(true)
     goods_id = get_goods_id()
-    ref(CAFE24API.MALL_ID, CAFE24API.SHOP_NO, goods_id)
+    ref(goods_id)
     this.set_code()
     this.box.appendChild(this.code_row)
 
@@ -126,29 +126,11 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
 
 var INTELLISYS_FRONT_PRODUCT_DETAIL_CODE_ = new INTELLISYS_FRONT_PRODUCT_DETAIL_CODE(['prdDetail', 'main'])
 
-function ref(mall_id, shop_no, goods_id) {
-  const xhr = new XMLHttpRequest();
-  const method = "GET";
-  const url = `http://127.0.0.1:8000/api/main_context_codi/?mall_id=${mall_id}&shop_no=${shop_no}&goods_id${goods_id}`;
-
-  // 요청을 초기화 합니다.
-  xhr.open(method, url);
-
-  // onreadystatechange 이벤트를 이용해 요청에 대한 응답 결과를 처리합니다.
-  xhr.onreadystatechange = function (event) {
-    const { target } = event;
-
-    if (target.readyState === XMLHttpRequest.DONE) {
-      const { status } = target;
-
-      if (status === 0 || (status >= 200 && status < 400)) {
-        console.log(xhr.response)
-        // INTELLISYS_FRONT_PRODUCT_DETAIL_CODE_.set_code(xhr.response)
-      } else {
-        console.log('Error', xhr.status, xhr.statusText)
-      }
-    }
-  };
-  // 서버에 요청을 보냅니다.
-  xhr.send();
+function ref(goods_id) {
+  axios.get(`http://127.0.0.1:8000/api/detail_goods_codi/?mall_id=${CAFE24API["MALL_ID"]}&shop_no=${CAFE24API["SHOP_NO"]}&goods_id=${goods_id}`).then(resp => {
+    console.log(resp.data);
+    INTELLISYS_FRONT_PRODUCT_DETAIL_CODE_.set_code(resp.data)
+  }).catch((Error)=>{
+    console.log(Error);
+  });
 }

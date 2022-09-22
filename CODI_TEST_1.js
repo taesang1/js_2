@@ -66,7 +66,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
         this.code_row.appendChild(this.slides)
         this.code_row.appendChild(document.createElement("hr"))
       }
-      // this.loading(false)
+      this.loading(false)
     }
   
     set_attrs() {
@@ -87,53 +87,36 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
       this.set_attrs()
       
       this.box.appendChild(this.title);
-      // this.loading(true)
-      // ref()
+      this.loading(true)
+      ref()
       this.set_code()
       this.box.appendChild(this.code_row)
   
       this.tagArea.appendChild(this.box)
     }
   
-    // loading(status){
-    //   if (status){
-    //     var loading_img = document.createElement("img")
-    //     loading_img.setAttribute("src",'https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A');
-    //     loading_img.setAttribute("id", 'loading');
-    //     this.box.appendChild(loading_img)
-    //     this.box.style.textAlign='center'
-    //   } else {
-    //     var loading_img = document.querySelector("#loading");
-    //     this.box.removeChild(loading_img)
-    //     this.box.style.textAlign=''
-    //   }
-    // }
+    loading(status){
+      if (status){
+        var loading_img = document.createElement("img")
+        loading_img.setAttribute("src",'https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A');
+        loading_img.setAttribute("id", 'loading');
+        this.box.appendChild(loading_img)
+        this.box.style.textAlign='center'
+      } else {
+        var loading_img = document.querySelector("#loading");
+        this.box.removeChild(loading_img)
+        this.box.style.textAlign=''
+      }
+    }
   }
   
   var INTELLISYS_FRONT_PRODUCT_DETAIL_CODE_ = new INTELLISYS_FRONT_PRODUCT_DETAIL_CODE(['prdDetail', 'main'])
   
-  // function ref() {
-  //   const xhr = new XMLHttpRequest();
-  //   const method = "GET";
-  //   const url = "http://127.0.0.1:8000";
-  
-  //   // 요청을 초기화 합니다.
-  //   xhr.open(method, url);
-  
-  //   // onreadystatechange 이벤트를 이용해 요청에 대한 응답 결과를 처리합니다.
-  //   xhr.onreadystatechange = function (event) {
-  //     const { target } = event;
-  
-  //     if (target.readyState === XMLHttpRequest.DONE) {
-  //       const { status } = target;
-  
-  //       if (status === 0 || (status >= 200 && status < 400)) {
-  //         code_.set_code(xhr.response)
-  //       } else {
-  //         console.log('Error', xhr.status, xhr.statusText)
-  //       }
-  //     }
-  //   };
-  //   // 서버에 요청을 보냅니다.
-  //   xhr.send();
-  // }
+  function ref() {
+    axios.get('http://127.0.0.1:8000').then(resp => {
+      console.log(resp.data);
+      INTELLISYS_FRONT_MAIN_CODE_SET_.set_code(resp.data)
+    }).catch((Error)=>{
+      console.log(Error);
+    });
+  }
