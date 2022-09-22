@@ -125,7 +125,7 @@ class INTELLISYS_FRONT_PRODUCT_DETAIL_CODE {
 }
 
 var INTELLISYS_FRONT_PRODUCT_DETAIL_CODE_ = new INTELLISYS_FRONT_PRODUCT_DETAIL_CODE(['prdDetail', 'main'])
-
+console.log(CAFE24API.MALL_ID, CAFE24API.SHOP_NO)
 function ref(mall_id, shop_no, goods_id) {
     const xhr = new XMLHttpRequest();
     const method = "GET";
