@@ -3,7 +3,7 @@ class INTELLISYS_FRONT_MAIN_CODI_SET {
       for (const i in target) {
         this.tagArea = document.querySelector(`#${target[i]}`);
         if (this.tagArea == null) continue;
-        this.set_box();
+          intellisys_main_context_codi_api_request();
         break
       }
     }
@@ -78,12 +78,12 @@ class INTELLISYS_FRONT_MAIN_CODI_SET {
       this.title.style.textAlign = "left";
     }
   
-    set_box() {
+    set_box(res) {
       this.info();
       this.set_attrs();
   
       this.loading(true);
-      intellisys_main_context_codi_api_request();
+      if (res == null || res == 'bleck_list') return
       this.box.appendChild(this.title);
       this.box.appendChild(this.codi_row);
   
@@ -126,7 +126,7 @@ class INTELLISYS_FRONT_MAIN_CODI_SET {
         const { status } = target;
   
         if (status === 0 || (status >= 200 && status < 400)) {
-          INTELLISYS_FRONT_MAIN_CODI_SET_.set_codi(JSON.parse(xhr.response)['results']);
+          INTELLISYS_FRONT_MAIN_CODI_SET_.set_box(JSON.parse(xhr.response)['results']);
         } else {
           console.log("Error", xhr.status, xhr.statusText);
         }
